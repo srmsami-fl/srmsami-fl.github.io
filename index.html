@@ -3,172 +3,371 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Md Sami Miah | Premium Digital Marketer & Automation Engineer</title>
+    <title>Md Sami Miah | Premium Digital Marketer Portfolio</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Portfolio of Md Sami Miah, a Professional Digital Marketer specializing in SEO, Social Media growth, Creative Design, and AI Automation solutions.">
-    <meta name="keywords" content="Md Sami Miah, SRM SAMI, Digital Marketer, SEO Expert, Automation Engineer, Gaibandha, Web Design">
+    <meta name="description" content="Official luxury portfolio of Md Sami Miah, a Professional Digital Marketer specializing in SEO, Social Media, Design, and Automation.">
+    <meta name="keywords" content="Md Sami Miah, SRM SAMI, Digital Marketer, SEO Specialist, Gaibandha, Automation, srmsami-fl">
     
-    <!-- Fonts & Icons -->
+    <!-- Premium Fonts & Icons -->
     <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="https://cloudflare.com">
-    
-    <!-- External CSS -->
-    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* LUXURY VARIABLES & RESET */
+        :root {
+            --bg-dark: #07090e;
+            --bg-card: rgba(18, 24, 38, 0.6);
+            --accent: #d4af37; /* Premium Gold */
+            --accent-glow: rgba(212, 175, 55, 0.3);
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --glass-border: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* CUSTOM CURSOR EFFECT */
+        .custom-cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            position: fixed;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 9999;
+            transition: width 0.3s, height 0.3s, background-color 0.3s;
+            mix-blend-mode: difference;
+        }
+
+        /* SCROLL PROGRESS */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), #f3e5ab);
+            z-index: 10000;
+            width: 0%;
+        }
+
+        /* PREMIUM STICKY NAVBAR */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(7, 9, 14, 0.75);
+            backdrop-filter: blur(12px);
+            z-index: 999;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--text-main);
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: 0.3s;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+            text-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        /* HERO SECTION WITH LUXURY GRADIENT */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 2rem;
+            background: radial-gradient(circle at center, #111827 0%, var(--bg-dark) 100%);
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+
+        .hero-content h1 span {
+            color: var(--accent);
+        }
+
+        .hero-content h2 {
+            font-size: 1.8rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        /* TYPING EFFECT COMPONENT */
+        .typing-text::after {
+            content: '|';
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        /* PREMIUM BUTTONS */
+        .cta-container {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .btn-premium {
+            display: inline-block;
+            text-decoration: none;
+            padding: 0.9rem 2.2rem;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            transition: all 0.4s ease;
+        }
+
+        .btn-solid {
+            background: var(--accent);
+            color: var(--bg-dark);
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
+
+        .btn-solid:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 30px rgba(212, 175, 55, 0.5);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--glass-border);
+            color: var(--text-main);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .btn-outline:hover {
+            background: var(--text-main);
+            color: var(--bg-dark);
+            transform: translateY(-3px);
+        }
+
+        /* SECTIONS GENERAL */
+        section {
+            padding: 8rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 4rem;
+            letter-spacing: 1px;
+        }
+
+        .section-title span {
+            color: var(--accent);
+        }
+
+        /* GLASSMORPHISM CARD DESIGN */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .glass-card {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 8px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.05);
+        }
+
+        .glass-card i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .glass-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .glass-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* TIMELINE (ABOUT PAGE) */
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .timeline {
+            border-left: 2px solid var(--glass-border);
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .timeline-item {
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: calc(-2rem - 7px);
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent);
+        }
+
+        .timeline-item h4 {
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        /* CONTACT FORM */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+        }
+
+        .info-box p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .info-box i {
+            color: var(--accent);
+            margin-right: 10px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--glass-border);
+            color: var(--text-main);
+            border-radius: 4px;
+            outline: none;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--accent);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* PREMIUM FOOTER */
+        footer {
+            background: #040508;
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 900px) {
+            .about-container, .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            .nav-links {
+                display: none; /* Mobile optimization */
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Custom Cursor Nodes -->
-    <div class="custom-cursor"></div>
-    <div class="custom-cursor-dot"></div>
-
     <!-- Scroll Progress Indicator -->
-    <div class="scroll-progress" id="scrollProgress"></div>
-
-    <!-- Sticky Navigation -->
-    <header class="navbar">
-        <div class="nav-container">
-            <a href="#home" class="nav-logo">SAMI<span>.</span>MIAH</a>
-            <nav class="nav-menu">
-                <a href="#home" class="nav-link active">Home</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#services" class="nav-link">Services</a>
-                <a href="#stories" class="nav-link">Stories</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </nav>
-            <div class="menu-toggle" id="mobileMenu"><i class="fas fa-bars"></i></div>
-        </div>
-    </header>
-
-    <!-- Cinematic Hero Section -->
-    <section id="home" class="hero-section">
-        <div class="bg-gradient-glow"></div>
-        <div class="hero-content">
-            <h2 class="hero-tagline">EXPERIENCE DIGITAL LUXURY</h2>
-            <h1 class="hero-title">
-                <span class="typewriter" id="typewriter">Transforming Ideas Into</span><br>
-                <span class="highlight">Digital Growth</span>
-            </h1>
-            <p class="hero-subtext">Helping brands, creators, and businesses scale globally with powerful digital strategies, luxury aesthetics, and intelligence-driven automation.</p>
-            <div class="hero-cta">
-                <a href="#services" class="btn btn-primary">View Services</a>
-                <a href="#contact" class="btn btn-secondary">Contact Me</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about-section scroll-reveal">
-        <div class="section-container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-grid">
-                <!-- Profile Card Grid Element -->
-                <div class="profile-card">
-                    <div class="card-inner">
-                        <div class="profile-icon-box">
-                            <i class="fas fa-user-tie"></i>
-                        </div>
-                        <h3>Md Sami Miah</h3>
-                        <p class="profile-role">Professional Digital Marketer</p>
-                        <p class="profile-bio">Bridging the critical gap between raw creative expression, platform algorithms, and scalable business ecosystem mechanics.</p>
-                        <div class="profile-details">
-                            <p><i class="fas fa-envelope"></i> srmsamimiah@gmail.com</p>
-                            <p><i class="fas fa-phone"></i> 01744100904</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Content Area -->
-                <div class="about-info">
-                    <h3>Architect of Modern Growth</h3>
-                    <p class="luxury-p">My professional journey revolves around generating sustainable brand traction. By analyzing platform metadata, refining cross-channel acquisition funnels, and automating redundant architecture, I help businesses capture attention and convert it into high-intent conversions.</p>
-                    
-                    <!-- Skills Breakdown Progress Bars -->
-                    <div class="skills-wrapper">
-                        <div class="skill-item">
-                            <div class="skill-info"><span>Digital Marketing & Performance SEO</span><span>95%</span></div>
-                            <div class="progress-bar"><div class="progress" style="width: 95%"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info"><span>UI/UX & Responsive Web Layouts</span><span>88%</span></div>
-                            <div class="progress-bar"><div class="progress" style="width: 88%"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info"><span>Advanced Automation (GTM, n8n, AI)</span><span>90%</span></div>
-                            <div class="progress-bar"><div class="progress" style="width: 90%"></div></div>
-                        </div>
-                    </div>
-
-                    <!-- Interactive Animated Timeline -->
-                    <h4 class="timeline-title">Academic & Professional Foundations</h4>
-                    <div class="timeline">
-                        <div class="timeline-node">
-                            <div class="node-dot"></div>
-                            <div class="node-content">
-                                <h5>Desh IT Center — Gaibandha</h5>
-                                <p>Specialized Advanced System Automation, Data Engineering, and Creative Digital Suite Operations.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-node">
-                            <div class="node-dot"></div>
-                            <div class="node-content">
-                                <h5>Gobindaganj Government College</h5>
-                                <p>Higher Academic Studies focused on critical thinking, analytics, and business communication strategies.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-node">
-                            <div class="node-dot"></div>
-                            <div class="node-content">
-                                <h5>Hashbari ML High School</h5>
-                                <p>Secondary Education foundational milestone triggering deep curiosity toward compute technology and digital channels.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services-section scroll-reveal">
-        <div class="section-container">
-            <h2 class="section-title">My Services</h2>
-            <div class="services-grid">
-                <!-- Card 1 -->
-                <div class="service-card">
-                    <div class="service-icon"><i class="fab fa-youtube"></i></div>
-                    <h3>YouTube SEO & Promotion</h3>
-                    <p>Channel velocity optimization through algorithmic target keyword optimization, metadata restructuring, and target audience alignment.</p>
-                    <span class="service-benefit">Benefit: Accelerated organic impressions & retention.</span>
-                </div>
-                <!-- Card 2 -->
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
-                    <h3>Social Media Marketing</h3>
-                    <p>Strategic positioning campaigns across premium target platforms including Facebook, Instagram, TikTok, Pinterest, Spotify, and SoundCloud.</p>
-                    <span class="service-benefit">Benefit: High-intent community acquisition.</span>
-                </div>
-                <!-- Card 3 -->
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-palette"></i></div>
-                    <h3>Graphic Design Suite</h3>
-                    <p>High-conversion high-click rate thumbnails, editorial posters, corporate identity assets, and high-fidelity photo manipulations.</p>
-                    <span class="service-benefit">Benefit: Distinct visual footprint.</span>
-                </div>
-                <!-- Card 4 -->
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-video"></i></div>
-                    <h3>Cinematic Video Editing</h3>
-                    <p>Dynamic storytelling content, pacing modifications, color adjustments, sound design, and micro-attention engagement hooks.</p>
-                    <span class="service-benefit">Benefit: Retention metrics maximization.</span>
-                </div>
-                <!-- Card 5 -->
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
-                    <h3>Premium Website Design</h3>
-                    <p>Clean structures built for rapid loading optimization, high-fidelity components, and intuitive navigational accessibility maps.</p>
-                    <span class="service-benefit">Benefit: Seamless brand authority.</span>
-                </div>
-                <!-- Card 6 -->
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-robot"></i></div>
-                    <h3>Enterprise Automation Solutions</h3>
+    <div class="progress-bar" id="scrollProgress"></div>
