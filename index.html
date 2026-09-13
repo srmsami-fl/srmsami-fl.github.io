@@ -290,7 +290,221 @@
                 <p>This automated personal hub deployed right here using GitHub actions. Completely open-source repository asset.</p>
                 <div class="project-links">
 
-                    // ১. কার্ডের ভেতরের ৩D লাইটিং ডাইনামিক ইফেক্ট
+                    <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+/* সেকশন বেস স্টাইল */
+.certifications-section {
+  position: relative;
+  background-color: #000000; /* সম্পূর্ণ কালো ব্যাকগ্রাউন্ড */
+  padding: 80px 20px;
+  overflow: hidden;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+}
+
+#certParticleCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cert-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* হেডার স্টাইল */
+.cert-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.cert-title {
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.cert-title span {
+  color: #a4286a; /* Yoast পার্পল ব্র্যান্ড কালার */
+  background: linear-gradient(45deg, #a4286a, #ff5cbb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cert-subtitle {
+  color: #888888;
+  font-size: 1rem;
+}
+
+/* গ্রিড এবং কার্ড স্টাইল */
+.cert-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.cert-card {
+  position: relative;
+  background: rgba(20, 20, 20, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 35px 25px;
+  width: 320px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), border-color 0.5s ease, box-shadow 0.5s ease;
+  overflow: hidden;
+}
+
+/* মাউস হোভার ইফেক্ট */
+.cert-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: rgba(164, 40, 106, 0.6);
+  box-shadow: 0 30px 60px rgba(164, 40, 106, 0.2);
+}
+
+/* কার্ডের ভেতরের ৩D লাইটিং গ্লো */
+.card-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(164, 40, 106, 0.15) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.cert-card:hover .card-glow {
+  opacity: 1;
+}
+
+/* ব্যাজ ইমেজ বক্স */
+.cert-badge-box {
+  margin-bottom: 25px;
+  display: inline-block;
+  transition: transform 0.5s ease;
+}
+
+.cert-card:hover .cert-badge-box {
+  transform: scale(1.08) rotate(2deg);
+}
+
+.badge-img {
+  width: 180px;
+  height: auto;
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.5));
+}
+
+/* টেক্সট ও বাটনের স্টাইল */
+.cert-tag {
+  display: inline-block;
+  background: rgba(164, 40, 106, 0.15);
+  color: #ff5cbb;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 50px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cert-details h3 {
+  color: #ffffff;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 5px 0 10px 0;
+}
+
+.cert-details p {
+  color: #aaaaaa;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin-bottom: 25px;
+}
+
+.cert-action-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #a4286a 0%, #721647 100%);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(164, 40, 106, 0.3);
+  transition: all 0.3s ease;
+}
+
+.cert-action-btn:hover {
+  background: linear-gradient(135deg, #ff5cbb 0%, #a4286a 100%);
+  box-shadow: 0 6px 20px rgba(164, 40, 106, 0.5);
+  transform: translateY(-2px);
+}
+
+/* রেসপনসিভ ব্রেকপয়েন্ট */
+@media (max-width: 768px) {
+  .cert-title { font-size: 2rem; }
+  .cert-card { width: 100%; max-width: 340px; }
+}
+
+</style>
+</head>
+<body>
+<section class="certifications-section">
+  <!-- ব্যাকগ্রাউন্ডের অ্যানিমেটেড কণার জন্য ক্যানভাস -->
+  <canvas id="certParticleCanvas"></canvas>
+  
+  <div class="cert-container">
+    <div class="cert-header">
+      <h2 class="cert-title">Professional <span>Certifications</span></h2>
+      <p class="cert-subtitle">My verified credentials and technical expertise</p>
+    </div>
+
+    <div class="cert-grid">
+      <!-- Yoast Certificate Card -->
+      <div class="cert-card" id="yoastCard">
+        <div class="card-glow"></div>
+        <div class="cert-badge-box">
+          <!-- আপনার দেওয়া মূল HTML কোডটি এখানে যুক্ত করা হয়েছে -->
+          <a href="https://academy.yoast.com/certificate/8218/1991343/86a30f038410f01030a1352b304199a7/1/" target="_blank" rel="noopener noreferrer">
+            <img src="https://academy.yoast.com/badge/8218/1991343/86a30f038410f01030a1352b304199a7/1/" alt="Md Sami Mia successfully completed the WordPress for beginners course!" class="badge-img"/>
+          </a>
+        </div>
+        <div class="cert-details">
+          <span class="cert-tag">WordPress & SEO</span>
+          <h3>WordPress for Beginners</h3>
+          <p>Issued by Yoast SEO Academy • Verified Online Credential</p>
+          <a href="https://academy.yoast.com/certificate/8218/1991343/86a30f038410f01030a1352b304199a7/1/" target="_blank" class="cert-action-btn">
+            Verify Certificate <i class="fas fa-external-link-alt"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- ভবিষ্যতে আরও সার্টিফিকেট যোগ করতে চাইলে এই রকম আরেকটি div যোগ করতে পারবেন -->
+    </div>
+  </div>
+</section>
+
+<script>
+// ১. কার্ডের ভেতরের ৩D লাইটিং ডাইনামিক ইফেক্ট
 const card = document.getElementById('yoastCard');
 if (card) {
   card.addEventListener('mousemove', (e) => {
@@ -360,3 +574,10 @@ if (canvas) {
   init();
   animate();
 }
+
+</script>
+</body>
+</html>
+
+
+                    
