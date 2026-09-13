@@ -290,13 +290,43 @@
                 <p>This automated personal hub deployed right here using GitHub actions. Completely open-source repository asset.</p>
                 <div class="project-links">
 
-                    <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<style>
-/* সেকশন বেস স্টাইল */
+
+                    <section class="certifications-section">
+  <!-- ব্যাকগ্রাউন্ডের অ্যানিমেটেড কণার জন্য ক্যানভাস -->
+  <canvas id="certParticleCanvas"></canvas>
+  
+  <div class="cert-container">
+    <div class="cert-header">
+      <h2 class="cert-title">Professional <span>Certifications</span></h2>
+      <p class="cert-subtitle">My verified credentials and technical expertise</p>
+    </div>
+
+    <div class="cert-grid">
+      <!-- Yoast Certificate Card -->
+      <div class="cert-card" id="yoastCard">
+        <div class="card-glow"></div>
+        <div class="cert-badge-box">
+          <!-- আপনার দেওয়া মূল HTML কোডটি এখানে যুক্ত করা হয়েছে -->
+          <a href="https://academy.yoast.com/certificate/8218/1991343/86a30f038410f01030a1352b304199a7/1/" target="_blank" rel="noopener noreferrer">
+            <img src="https://academy.yoast.com/badge/8218/1991343/86a30f038410f01030a1352b304199a7/1/" alt="Md Sami Mia successfully completed the WordPress for beginners course!" class="badge-img"/>
+          </a>
+        </div>
+        <div class="cert-details">
+          <span class="cert-tag">WordPress & SEO</span>
+          <h3>WordPress for Beginners</h3>
+          <p>Issued by Yoast SEO Academy • Verified Online Credential</p>
+          <a href="https://academy.yoast.com/certificate/8218/1991343/86a30f038410f01030a1352b304199a7/1/" target="_blank" class="cert-action-btn">
+            Verify Certificate <i class="fas fa-external-link-alt"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- ভবিষ্যতে আরও সার্টিফিকেট যোগ করতে চাইলে এই রকম আরেকটি div যোগ করতে পারবেন -->
+    </div>
+  </div>
+</section>
+
+                    /* সেকশন বেস স্টাইল */
 .certifications-section {
   position: relative;
   background-color: #000000; /* সম্পূর্ণ কালো ব্যাকগ্রাউন্ড */
@@ -464,120 +494,3 @@
   .cert-title { font-size: 2rem; }
   .cert-card { width: 100%; max-width: 340px; }
 }
-
-</style>
-</head>
-<body>
-<section class="certifications-section">
-  <!-- ব্যাকগ্রাউন্ডের অ্যানিমেটেড কণার জন্য ক্যানভাস -->
-  <canvas id="certParticleCanvas"></canvas>
-  
-  <div class="cert-container">
-    <div class="cert-header">
-      <h2 class="cert-title">Professional <span>Certifications</span></h2>
-      <p class="cert-subtitle">My verified credentials and technical expertise</p>
-    </div>
-
-    <div class="cert-grid">
-      <!-- Yoast Certificate Card -->
-      <div class="cert-card" id="yoastCard">
-        <div class="card-glow"></div>
-        <div class="cert-badge-box">
-          <!-- আপনার দেওয়া মূল HTML কোডটি এখানে যুক্ত করা হয়েছে -->
-          <a href="https://academy.yoast.com/certificate/8218/1991343/86a30f038410f01030a1352b304199a7/1/" target="_blank" rel="noopener noreferrer">
-            <img src="https://academy.yoast.com/badge/8218/1991343/86a30f038410f01030a1352b304199a7/1/" alt="Md Sami Mia successfully completed the WordPress for beginners course!" class="badge-img"/>
-          </a>
-        </div>
-        <div class="cert-details">
-          <span class="cert-tag">WordPress & SEO</span>
-          <h3>WordPress for Beginners</h3>
-          <p>Issued by Yoast SEO Academy • Verified Online Credential</p>
-          <a href="https://academy.yoast.com/certificate/8218/1991343/86a30f038410f01030a1352b304199a7/1/" target="_blank" class="cert-action-btn">
-            Verify Certificate <i class="fas fa-external-link-alt"></i>
-          </a>
-        </div>
-      </div>
-      
-      <!-- ভবিষ্যতে আরও সার্টিফিকেট যোগ করতে চাইলে এই রকম আরেকটি div যোগ করতে পারবেন -->
-    </div>
-  </div>
-</section>
-
-<script>
-// ১. কার্ডের ভেতরের ৩D লাইটিং ডাইনামিক ইফেক্ট
-const card = document.getElementById('yoastCard');
-if (card) {
-  card.addEventListener('mousemove', (e) => {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    
-    card.style.setProperty('--mouse-x', `${x}px`);
-    card.style.setProperty('--mouse-y', `${y}px`);
-  });
-}
-
-// ২. ব্যাকগ্রাউন্ড কণার জন্য লাইটওয়েট পার্টিকেল অ্যানিমেশন
-const canvas = document.getElementById('certParticleCanvas');
-if (canvas) {
-  const ctx = canvas.getContext('2d');
-  let particlesArray = [];
-
-  function resizeCanvas() {
-    canvas.width = canvas.parentElement.offsetWidth;
-    canvas.height = canvas.parentElement.offsetHeight;
-  }
-  window.addEventListener('resize', resizeCanvas);
-  resizeCanvas();
-
-  class Particle {
-    constructor() {
-      this.x = Math.random() * canvas.width;
-      this.y = Math.random() * canvas.height;
-      this.size = Math.random() * 2 + 0.5;
-      this.speedX = Math.random() * 0.5 - 0.25;
-      this.speedY = Math.random() * 0.5 - 0.25;
-      this.alpha = Math.random() * 0.5 + 0.1;
-    }
-    update() {
-      this.x += this.speedX;
-      this.y += this.speedY;
-      if (this.x > canvas.width) this.x = 0;
-      if (this.x < 0) this.x = canvas.width;
-      if (this.y > canvas.height) this.y = 0;
-      if (this.y < 0) this.y = canvas.height;
-    }
-    draw() {
-      ctx.fillStyle = `rgba(164, 40, 106, ${this.alpha})`;
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-      ctx.fill();
-    }
-  }
-
-  function init() {
-    particlesArray = [];
-    for (let i = 0; i < 40; i++) {
-      particlesArray.push(new Particle());
-    }
-  }
-
-  function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (let i = 0; i < particlesArray.length; i++) {
-      particlesArray[i].update();
-      particlesArray[i].draw();
-    }
-    requestAnimationFrame(animate);
-  }
-
-  init();
-  animate();
-}
-
-</script>
-</body>
-</html>
-
-
-                    
